@@ -22,8 +22,8 @@ jobs:
         uses: thomasdesr/minisign-action@v1
         with:
           args: -Sm smtp/target/debug/libsmtp_server.rlib
-          minisign_key: ${{ secrets.minisign_key }}
-          password: ${{ secrets.minisign_password }}
+          minisign_key: ${{ secrets.MINISIGN_KEY }}
+          password: ${{ secrets.MINISIGN_PASSWORD }}
       - name: Upload the signature
         uses: actions/upload-artifact@v1
         with:
