@@ -1,9 +1,9 @@
 use smtp::core::{SmtpSessionManager, SMTP};
 use utils::{
     config::{Config, ServerProtocol},
-    enable_tracing, wait_for_shutdown, UnwrapFailure,
+    enable_tracing, UnwrapFailure,
 };
-use jmap::{services::IPC_CHANNEL_BUFFER};
+use jmap::services::IPC_CHANNEL_BUFFER;
 use directory::config::ConfigDirectory;
 use tokio::sync::mpsc;
 
@@ -13,6 +13,17 @@ pub async fn start_smtp_server () {
     let directory = config.parse_directory().failed("Invalid configuration");
 
     servers.bind(&config);
+
+        // Enable tracing
+        let _tracer = enable_tracing(
+            &config,
+            &format!(
+                "Starting Stalwart Mail Server v{}...",
+                env!("CARGO_PKG_VERSION"),
+            ),
+        )
+        .failed("Failed to enable tracing");
+
 
     let (delivery_tx, delivery_rx) = mpsc::channel(IPC_CHANNEL_BUFFER);
     let smtp = SMTP::init(&config, &servers, &directory, delivery_tx)
