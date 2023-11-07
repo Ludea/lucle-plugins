@@ -31,4 +31,4 @@ jobs:
           name: my-signature
           path: |
             smtp/target/debug/libsmtp_server.rlib
-            smtp/target/debug/libsmtp_server.rlib.minisign
+            smtp/target/debug/libsmtp_server.rlib.minisig
