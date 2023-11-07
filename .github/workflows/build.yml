@@ -18,3 +18,16 @@ jobs:
         run: cd smtp && cargo build --verbose
       - name: Run smtp server tests
         run: cd smtp && cargo test --verbose
+      - name: Sign plugin
+        uses: thomasdesr/minisign-action@v1
+        with:
+          args: -Sm target/release/libsmtp_server.rlib
+          minisign_key: ${{ secrets.minisign_key }}
+          password: ${{ secrets.minisign_password }}
+      - name: Upload the signature
+        uses: actions/upload-artifact@v1
+        with:
+          name: my-signature
+          path: |
+            target/release/libsmtp_server.rlib
+            target/release/libsmtp_server.rlib.minisign
