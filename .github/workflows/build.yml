@@ -29,5 +29,5 @@ jobs:
         with:
           name: my-signature
           path: |
-            target/release/libsmtp_server.rlib
-            target/release/libsmtp_server.rlib.minisign
+            smtp/target/release/libsmtp_server.rlib
+            smtp/target/release/libsmtp_server.rlib.minisign
