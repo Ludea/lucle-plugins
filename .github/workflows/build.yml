@@ -21,7 +21,7 @@ jobs:
       - name: Sign plugin
         uses: thomasdesr/minisign-action@v1
         with:
-          args: -Sm target/debug/libsmtp_server.rlib
+          args: -Sm smtp/target/debug/libsmtp_server.rlib
           minisign_key: ${{ secrets.minisign_key }}
           password: ${{ secrets.minisign_password }}
       - name: Upload the signature
