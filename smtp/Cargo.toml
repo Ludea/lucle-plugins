@@ -13,3 +13,6 @@ utils = { git = "https://github.com/stalwartlabs/mail-server"}
 directory = { git = "https://github.com/stalwartlabs/mail-server"}
 jmap = { git = "https://github.com/stalwartlabs/mail-server"}
 tokio = { version = "1.23", features = ["full"] }
+
+[profile.release]
+strip = "symbols"
