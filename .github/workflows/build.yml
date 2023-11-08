@@ -28,5 +28,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifacts
-          path: smtp/target/debug/lib*
+          path: |
+            smtp/target/debug/libsmtp_server.rlib
+            smtp/target/debug/libsmtp_server.rlib.minisig
           if-no-files-found: error
