@@ -15,13 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build smtp server
-        run: cd smtp && cargo build --verbose
+        run: cd smtp && cargo build --release --verbose
       - name: Run smtp server tests
         run: cd smtp && cargo test --verbose
       - name: Sign plugin
         uses: thomasdesr/minisign-action@v1
         with:
-          args: -Sm smtp/target/debug/libsmtp_server.so
+          args: -Sm smtp/target/release/libsmtp_server.so
           minisign_key: ${{ secrets.MINISIGN_KEY }}
          # password: ${{ secrets.MINISIGN_PASSWORD }}
       - name: Upload the signature
@@ -29,6 +29,6 @@ jobs:
         with:
           name: artifacts
           path: |
-            smtp/target/debug/libsmtp_server.so
-            smtp/target/debug/libsmtp_server.so.minisig
+            smtp/target/release/libsmtp_server.so
+            smtp/target/release/libsmtp_server.so.minisig
           if-no-files-found: error
