@@ -24,12 +24,8 @@ jobs:
           args: -Sm smtp/target/debug/libsmtp_server.rlib
           minisign_key: ${{ secrets.MINISIGN_KEY }}
          # password: ${{ secrets.MINISIGN_PASSWORD }}
-      - run: |
-          ls
-          echo foo
-          ls smtp/target/debug
       - name: Upload the signature
         uses: actions/upload-artifact@v1
         with:
           name: artifacts
-          path: smtp/target/debug/libsmtp_server.rlib
+          path: smtp/target/debug/lib*
