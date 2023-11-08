@@ -21,7 +21,7 @@ jobs:
       - name: Sign plugin
         uses: thomasdesr/minisign-action@v1
         with:
-          args: -Sm smtp/target/debug/libsmtp_server.rlib
+          args: -Sm smtp/target/debug/libsmtp_server.so
           minisign_key: ${{ secrets.MINISIGN_KEY }}
          # password: ${{ secrets.MINISIGN_PASSWORD }}
       - name: Upload the signature
@@ -29,6 +29,6 @@ jobs:
         with:
           name: artifacts
           path: |
-            smtp/target/debug/libsmtp_server.rlib
-            smtp/target/debug/libsmtp_server.rlib.minisig
+            smtp/target/debug/libsmtp_server.so
+            smtp/target/debug/libsmtp_server.so.minisig
           if-no-files-found: error
