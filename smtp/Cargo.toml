@@ -3,6 +3,10 @@ name = "smtp-server"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "smtp_server"
+crate-type = ["dylib"]
+
 [dependencies]
 smtp = { git = "https://github.com/stalwartlabs/mail-server", features = ["local_delivery"] }
 utils = { git = "https://github.com/stalwartlabs/mail-server"}
