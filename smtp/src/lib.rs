@@ -1,7 +1,3 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
-
 mod smtp_server;
 
 pub async fn run() {
