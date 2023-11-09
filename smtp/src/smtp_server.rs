@@ -8,7 +8,7 @@ use directory::config::ConfigDirectory;
 use tokio::sync::mpsc;
 
 #[no_mangle]
-pub async fn run () {
+pub async fn start_smtp_server () {
     let config = Config::init();
     let servers = config.parse_servers().failed("Invalid configuration");
     let directory = config.parse_directory().failed("Invalid configuration");
