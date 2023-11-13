@@ -7,7 +7,6 @@ use jmap::services::IPC_CHANNEL_BUFFER;
 use directory::config::ConfigDirectory;
 use tokio::sync::mpsc;
 
-#[no_mangle]
 pub async fn start_smtp_server () {
     let config = Config::new("config.toml").unwrap();
     let servers = config.parse_servers().failed("Invalid configuration");
