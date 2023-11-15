@@ -6,10 +6,6 @@
 hostname = "%{HOST}%"
 max-connections = 8192
 
-[server.run-as]
-user = "stalwart-mail"
-group = "stalwart-mail"
-
 [server.socket]
 nodelay = true
 reuse-addr = true
