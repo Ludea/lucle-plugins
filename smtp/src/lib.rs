@@ -1,5 +1,3 @@
-use tokio;
-
 mod smtp_server;
 
 #[no_mangle]
