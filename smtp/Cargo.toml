@@ -12,7 +12,7 @@ smtp = { git = "https://github.com/stalwartlabs/mail-server", features = ["local
 utils = { git = "https://github.com/stalwartlabs/mail-server"}
 directory = { git = "https://github.com/stalwartlabs/mail-server"}
 jmap = { git = "https://github.com/stalwartlabs/mail-server"}
-tokio = { version = "1.23", features = ["full"] }
+tokio = "1.34"
 
 [profile.release]
 strip = "symbols"
