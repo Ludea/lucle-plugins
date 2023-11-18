@@ -9,10 +9,10 @@ crate-type = ["dylib"]
 
 [dependencies]
 ahash = "0.8"
-smtp = { git = "https://github.com/ludea/mail-server", branch = "tokio_feature", features = ["local_delivery"] }
-utils = { git = "https://github.com/ludea/mail-server"}
-directory = { git = "https://github.com/ludea/mail-server"}
-jmap = { git = "https://github.com/ludea/mail-server", branch = "tokio_feature" }
+smtp = { git = "https://github.com/stalwartlabs/mail-server", features = ["local_delivery"] }
+utils = { git = "https://github.com/stalwartlabs/mail-server"}
+directory = { git = "https://github.com/stalwartlabs/mail-server"}
+jmap = { git = "https://github.com/stalwartlabs/mail-server"}
 tokio = "1.34"
 
 [profile.release]
