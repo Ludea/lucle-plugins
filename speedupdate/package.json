@@ -1,0 +1,19 @@
+{
+  "name": "speedupdate",
+  "packageManager": "yarn@3.6.1",
+  "type": "module",
+  "main'": "index.tsx",
+  "scripts": {
+    "build": "tsc && node esbuild.mjs"
+  },
+  "dependencies": {
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
+    "esbuild": "^0.19.6",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "typescript": "^5.2.2"
+  }
+}
