@@ -2,3 +2,5 @@ certificate.pem
 key.pem
 
 **/target
+**/.yarn
+**/dist
