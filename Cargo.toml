@@ -1,5 +1,5 @@
 [workspace]
-members = ["smtp", "static-files", "speedupdate"]
+members = ["lucle-plugin-*/"]
 resolver = "2"
 
 [workspace.package]

@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build smtp server
-        run: cd smtp && cargo build --release --verbose
+        run: cargo build --release --verbose
       - name: Run smtp server tests
-        run: cd smtp && cargo test --verbose
+        run: cargo test --verbose
       - name: Sign plugin
         uses: thomasdesr/minisign-action@v1
         with:
