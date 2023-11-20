@@ -1,6 +1,5 @@
 {
   "name": "speedupdate",
-  "packageManager": "yarn@3.6.1",
   "type": "module",
   "main'": "index.tsx",
   "scripts": {
