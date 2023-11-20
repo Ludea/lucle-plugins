@@ -7,7 +7,8 @@
   },
   "dependencies": {
     "@mui/icons-material": "^5.14.18",
-    "@mui/material": "^5.14.18",
+    "@mui/material": "^5.14.18",    
+    "mui-file-dropzone": "4.0.2",
     "esbuild": "^0.19.6",
     "react": "^18.2.0"
   },
