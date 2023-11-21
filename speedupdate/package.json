@@ -6,11 +6,14 @@
     "build": "tsc && node esbuild.mjs"
   },
   "dependencies": {
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
     "@mui/icons-material": "^5.14.18",
-    "@mui/material": "^5.14.18",    
-    "mui-file-dropzone": "4.0.2",
+    "@mui/material": "^5.14.18",
     "esbuild": "^0.19.6",
-    "react": "^18.2.0"
+    "mui-file-dropzone": "4.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

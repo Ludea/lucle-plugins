@@ -17,12 +17,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 // api
 import {
-  connect,
   init,
   status,
   unregisterVersion,
   registerPackage,
-} from "utils/rpc";
+} from "rpc";
 
 function Speedupdate() {
   const [repoInit, setRepoInit] = useState<boolean>(false);

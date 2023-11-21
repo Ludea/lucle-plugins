@@ -4,3 +4,6 @@ key.pem
 **/target
 **/.yarn
 **/dist
+**/node_modules
+**/yarn.lock
+Cargo.lock
