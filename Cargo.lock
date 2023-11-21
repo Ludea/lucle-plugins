@@ -4356,6 +4356,9 @@ name = "static-files"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "futures",
+ "tokio",
+ "tokio-util",
  "tower-http",
 ]
 
