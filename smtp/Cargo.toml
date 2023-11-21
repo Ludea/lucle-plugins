@@ -10,9 +10,9 @@ crate-type = ["dylib"]
 [dependencies]
 ahash = "0.8"
 smtp = { git = "https://github.com/hoxxep/mail-server", branch = "explicit-versioning", features = ["local_delivery"] }
-utils = { git = "https://github.com/stalwartlabs/mail-server"}
-directory = { git = "https://github.com/stalwartlabs/mail-server"}
-jmap = { git = "https://github.com/stalwartlabs/mail-server"}
+utils = { git = "https://github.com/hoxxep/mail-server", branch = "explicit-versioning"}
+directory = { git = "https://github.com/hoxxep/mail-server", branch = "explicit-versioning"}
+jmap = { git = "https://github.com/hoxxep/mail-server", branch = "explicit-versioning"}
 tokio = "1.34"
 
 [profile.release]
