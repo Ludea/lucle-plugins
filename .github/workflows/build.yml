@@ -10,21 +10,21 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  build-rust-plugins:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build smtp server
+      - name: Build plugins
         run: cargo build --release --verbose
       - name: Run smtp server tests
         run: cargo test --verbose
-      - name: Sign plugin
+      - name: Sign plugins
         uses: thomasdesr/minisign-action@v1
         with:
           args: -Sm target/release/*.so
           minisign_key: ${{ secrets.MINISIGN_KEY }}
          # password: ${{ secrets.MINISIGN_PASSWORD }}
-      - name: Upload the signature
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: artifacts
@@ -33,4 +33,32 @@ jobs:
             smtp/etc/
             target/release/*.so
             target/release/*.minisig
+          if-no-files-found: error
+  
+  build-js-plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v4.0.0
+        with:
+          node-version: 16
+      - name: Build js plugins
+        run: |
+          cd speedupdate
+          yarn
+          yarn build
+      - name: Sign plugins
+        uses: thomasdesr/minisign-action@v1
+        with:
+          args: -Sm speedupdate/dist/out.js
+          minisign_key: ${{ secrets.MINISIGN_KEY }}
+         # password: ${{ secrets.MINISIGN_PASSWORD }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: |
+            speedupdate/dist/out.js
+            speedupdate/dist/*.minisig
           if-no-files-found: error
