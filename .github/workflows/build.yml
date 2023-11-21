@@ -18,6 +18,7 @@ jobs:
         run: cargo build --release --verbose
       - name: Run smtp server tests
         run: cargo test --verbose
+      - run: ls
       - name: Sign plugin
         uses: thomasdesr/minisign-action@v1
         with:
