@@ -45,9 +45,8 @@ jobs:
           node-version: 16
       - name: Build js plugins
         run: |
-          cd speedupdate
-          yarn
-          yarn build
+          cd speedupdate && yarn
+          cd speedupdate && yarn build
       - name: Sign plugins
         uses: thomasdesr/minisign-action@v1
         with:
