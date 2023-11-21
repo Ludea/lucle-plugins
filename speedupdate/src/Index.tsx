@@ -23,7 +23,7 @@ import {
   registerPackage,
 } from "rpc";
 
-function Speedupdate() {
+function Speedupdate(client: any) {
   const [repoInit, setRepoInit] = useState<boolean>(false);
   const [url, setUrl] = useState<string>(localStorage.getItem("url") || "");
   const [currentVersion, setCurrentVersion] = useState<string>("");
@@ -32,7 +32,6 @@ function Speedupdate() {
   const [listPackages, setListPackages] = useState<string[]>([]);
   const [listVersions, setListVersions] = useState<string[]>([]);
   const [path, setPath] = useState<string>(localStorage.getItem("path") || "");
-  const [client, setClient] = useState<any>();
   const [fileObjects, setFileObjects] = useState();
   const [error, setError] = useState<String>("");
 
