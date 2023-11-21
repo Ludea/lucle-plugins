@@ -32,6 +32,6 @@ jobs:
           path: |
             smtp/config.toml
             smtp/etc/
-            smtp/target/release/libsmtp_server.so
-            smtp/target/release/libsmtp_server.so.minisig
+            smtp/target/release/*.so
+            smtp/target/release/*.minisig
           if-no-files-found: error
