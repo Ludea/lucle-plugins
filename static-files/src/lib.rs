@@ -1,13 +1,15 @@
 use axum::{
     body::Bytes,
-    extract::{Path, BodyStream},
+    extract::{BodyStream, Path as axumPath},
     handler::HandlerWithoutStateExt,
     http::StatusCode,
-    BoxError, Router,
     routing::post,
+    BoxError, Router,
 };
 use futures::{Stream, TryStreamExt};
+use std::fs;
 use std::io;
+use std::path::Path;
 use tokio::{fs::File, io::BufWriter};
 use tokio_util::io::StreamReader;
 use tower_http::services::ServeDir;
@@ -30,8 +32,21 @@ pub fn add_route(router: Router) -> Router {
         .fallback_service(serve_dir)
 }
 
+pub fn get_list_folders(path: &Path) -> Vec<String> {
+    let mut folders: Vec<String> = vec![];
+    match fs::read_dir(path) {
+        Ok(entries) => {
+            folders = entries
+                .map(|entry| entry.unwrap().file_name().to_string_lossy().into_owned())
+                .collect();
+        }
+        Err(err) => println!("Path error : {}", err),
+    }
+    folders
+}
+
 async fn save_request_body(
-    Path(file_name): Path<String>,
+    axumPath(file_name): axumPath<String>,
     body: BodyStream,
 ) -> Result<(), (StatusCode, String)> {
     stream_to_file(&file_name, body).await
