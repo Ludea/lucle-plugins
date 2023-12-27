@@ -1,0 +1,6 @@
+{
+  "name": "lucle-plugins-frontend",
+  "workspaces": [
+    "static-files/web"
+  ]
+}
