@@ -46,7 +46,7 @@ jobs:
       - name: Build js plugins
         run: |
           yarn
-          yarn build --workspaces
+          yarn workspaces foreach -Apt run build
       - name: Sign plugins
         uses: thomasdesr/minisign-action@v1
         with:
