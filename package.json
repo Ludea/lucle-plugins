@@ -1,6 +1,11 @@
 {
   "name": "lucle-plugins-frontend",
+  "private": true,
   "workspaces": [
     "static-files/web"
-  ]
+  ],
+  "packageManager": "yarn@4.0.2",
+  "dependencies": {
+    "@mui/icons-material": "^5.15.2"
+  }
 }
