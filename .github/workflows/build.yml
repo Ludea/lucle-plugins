@@ -45,7 +45,7 @@ jobs:
           node-version: 16
       - name: Build js plugins
         run: |
-          yarn set version stable
+          yarn -v
           yarn
           yarn workspaces foreach -Apt run build
       - name: Sign plugins
