@@ -5,8 +5,8 @@
     "build": "tsc && node esbuild.mjs"
   },
   "dependencies": {
-    "@mui/material": "^5.15.2",
     "@mui/icons-material": "^5.15.2",
+    "@mui/material": "^5.15.2",
     "esbuild": "^0.19.10",
     "react": "^18.2.0"
   },

@@ -3,5 +3,5 @@
   "private": true,
   "workspaces": [
     "static-files/web"
-   ]
+  ]
 }
