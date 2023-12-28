@@ -1,8 +1,8 @@
 {
   "name": "lucle-plugins-frontend",
+  "packageManager": "yarn@4.0.2",
   "private": true,
   "workspaces": [
-    "static-files/web", 
-    "speedupdate"
-  ], 
+    "static-files/web"
+   ],
 }
