@@ -42,7 +42,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4.0.0
         with:
-          node-version: 16
+          node-version: 18
       - name: Build js plugins
         run: |
           yarn -v
