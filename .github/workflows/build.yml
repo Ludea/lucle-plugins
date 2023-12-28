@@ -45,7 +45,6 @@ jobs:
           node-version: 16
       - name: Build js plugins
         run: |
-          corepack enable
           yarn set version stable
           yarn
           yarn workspaces foreach -Apt run build
