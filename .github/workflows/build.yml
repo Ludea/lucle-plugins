@@ -45,7 +45,6 @@ jobs:
           node-version: 18
       - name: Build js plugins
         run: |
-          yarn -v
           yarn
           yarn workspaces foreach -Apt run build
       - name: Sign plugins
