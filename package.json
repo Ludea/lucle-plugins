@@ -2,6 +2,7 @@
   "name": "lucle-plugins-frontend",
   "private": true,
   "workspaces": [
-    "static-files/web"
+    "static-files/web",
+    "speedupdate"
   ]
 }
