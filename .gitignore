@@ -5,3 +5,7 @@ key.pem
 **/dist
 **/node_modules
 Cargo.lock
+
+.yarn
+**/.yarn
+
