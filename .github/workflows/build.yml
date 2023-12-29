@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v4.0.0
+        with:
+          node-version: 18
       - name: Check file existence
         id: check_files
         uses: andstor/file-existence-action@v2
@@ -44,10 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: setup node
-        uses: actions/setup-node@v4.0.0
-        with:
-          node-version: 18
+      
       - name: Build js plugins
         run: |
           yarn
