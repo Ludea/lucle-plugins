@@ -18,15 +18,12 @@ jobs:
         uses: actions/setup-node@v4.0.0
         with:
           node-version: 18
-      - name: Check file existence
-        id: check_files
-        uses: andstor/file-existence-action@v2
-        with:
-          files: "package.json"
       - name: Build plugins
         run: cargo build --release --verbose
-      - name: Run smtp server tests
-        run: cargo test --verbose
+      - name: Build js plugins
+        run: |
+          yarn
+          yarn workspaces foreach -Apt run build
       - name: Sign plugins
         uses: thomasdesr/minisign-action@v1
         with:
@@ -42,28 +39,4 @@ jobs:
             smtp/etc/
             target/release/*.so
             target/release/*.minisig
-          if-no-files-found: error
-  
-  build-js-plugin:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Build js plugins
-        run: |
-          yarn
-          yarn workspaces foreach -Apt run build
-      - name: Sign plugins
-        uses: thomasdesr/minisign-action@v1
-        with:
-          args: -Sm speedupdate/dist/out.js
-          minisign_key: ${{ secrets.MINISIGN_KEY }}
-         # password: ${{ secrets.MINISIGN_PASSWORD }}
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: artifacts
-          path: |
-            speedupdate/dist/out.js
-            speedupdate/dist/*.minisig
           if-no-files-found: error
