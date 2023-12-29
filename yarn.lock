@@ -623,7 +623,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:^15.7.11":
+"@types/prop-types@npm:*, @types/prop-types@npm:^15, @types/prop-types@npm:^15.7.11":
   version: 15.7.11
   resolution: "@types/prop-types@npm:15.7.11"
   checksum: e53423cf9d510515ef8b47ff42f4f1b65a7b7b37c8704e2dbfcb9a60defe0c0e1f3cb1acfdeb466bad44ca938d7c79bffdd51b48ffb659df2432169d0b27a132
@@ -1181,9 +1181,11 @@ __metadata:
     "@emotion/styled": "npm:11.11.0"
     "@mui/icons-material": "npm:^5.14.18"
     "@mui/material": "npm:^5.14.18"
+    "@types/prop-types": "npm:^15"
     "@types/react": "npm:^18.2.37"
     esbuild: "npm:^0.19.6"
     mui-file-dropzone: "npm:4.0.2"
+    prop-types: "npm:^15.8.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     typescript: "npm:^5.2.2"

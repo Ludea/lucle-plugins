@@ -1387,11 +1387,11 @@ const RAW_RUNTIME_STATE =
           ["@mui/material", "virtual:7900a927c2951ea404044761d02255b29e9f3e227d95cf10ca70e9aeeb94716280155da47cb54dad1e47e321c71eed6130673cc727085a1342ab07bfcd9366e9#npm:5.15.2"],\
           ["@types/mui__icons-material", null],\
           ["@types/mui__material", null],\
-          ["@types/prop-types", null],\
+          ["@types/prop-types", "npm:15.7.11"],\
           ["@types/react", "npm:18.2.46"],\
           ["@types/react-dom", null],\
           ["clsx", "npm:1.2.1"],\
-          ["prop-types", null],\
+          ["prop-types", "npm:15.8.1"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:7900a927c2951ea404044761d02255b29e9f3e227d95cf10ca70e9aeeb94716280155da47cb54dad1e47e321c71eed6130673cc727085a1342ab07bfcd9366e9#npm:18.2.0"],\
           ["react-dropzone", "virtual:d9c72a8621b71a590e76f1a81d9052aa8f5f6e6ce6d886e2fc8934cc39a2734a07952f04eed714b4de77f5088a8c1c13653821a4089ada0344aca76018bcead1#npm:10.2.2"]\
@@ -1636,9 +1636,11 @@ const RAW_RUNTIME_STATE =
           ["@emotion/styled", "virtual:7900a927c2951ea404044761d02255b29e9f3e227d95cf10ca70e9aeeb94716280155da47cb54dad1e47e321c71eed6130673cc727085a1342ab07bfcd9366e9#npm:11.11.0"],\
           ["@mui/icons-material", "virtual:7900a927c2951ea404044761d02255b29e9f3e227d95cf10ca70e9aeeb94716280155da47cb54dad1e47e321c71eed6130673cc727085a1342ab07bfcd9366e9#npm:5.15.2"],\
           ["@mui/material", "virtual:7900a927c2951ea404044761d02255b29e9f3e227d95cf10ca70e9aeeb94716280155da47cb54dad1e47e321c71eed6130673cc727085a1342ab07bfcd9366e9#npm:5.15.2"],\
+          ["@types/prop-types", "npm:15.7.11"],\
           ["@types/react", "npm:18.2.46"],\
           ["esbuild", "npm:0.19.10"],\
           ["mui-file-dropzone", "virtual:7900a927c2951ea404044761d02255b29e9f3e227d95cf10ca70e9aeeb94716280155da47cb54dad1e47e321c71eed6130673cc727085a1342ab07bfcd9366e9#npm:4.0.2"],\
+          ["prop-types", "npm:15.8.1"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:7900a927c2951ea404044761d02255b29e9f3e227d95cf10ca70e9aeeb94716280155da47cb54dad1e47e321c71eed6130673cc727085a1342ab07bfcd9366e9#npm:18.2.0"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
