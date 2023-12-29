@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build plugins
-        run: cargo build --release --verbose
       - name: Check file existence
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
           files: "package.json"
+      - name: Build plugins
+        run: cargo build --release --verbose
       - name: Run smtp server tests
         run: cargo test --verbose
       - name: Sign plugins
