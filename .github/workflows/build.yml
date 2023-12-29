@@ -10,7 +10,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build-rust-plugins:
+  build-plugins:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 18
       - uses: dtolnay/rust-toolchain@stable 
-      - name: Build plugins
+      - name: Build rust plugins
         run: cargo build --release --verbose
       - name: Build js plugins
         run: |
