@@ -1643,6 +1643,7 @@ const RAW_RUNTIME_STATE =
           ["prop-types", "npm:15.8.1"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:7900a927c2951ea404044761d02255b29e9f3e227d95cf10ca70e9aeeb94716280155da47cb54dad1e47e321c71eed6130673cc727085a1342ab07bfcd9366e9#npm:18.2.0"],\
+          ["tslib", "npm:2.6.2"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
         ],\
         "linkType": "SOFT"\
