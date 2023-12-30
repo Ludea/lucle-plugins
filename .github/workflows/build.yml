@@ -21,6 +21,10 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable 
       - name: Build rust plugins
         run: cargo build --release --verbose
+      - name: Get js workspaces
+        uses: mikefarah/yq@v4.40.5
+        with:
+          cmd: echo "WORKSPACES=$(yq -p=json .workspaces package.json)" >> $GITHUB_ENV      
       - name: Build js plugins
         run: |
           yarn workspaces foreach -Apt install
