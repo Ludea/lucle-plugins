@@ -23,11 +23,8 @@ jobs:
         run: cargo build --release --verbose
       - name: Build js plugins
         run: |
-          yarn
           yarn workspaces foreach -Apt install
-          yarn build
-          ls speedupdate/dist
-#          yarn workspaces foreach -Apt run build
+          yarn workspaces foreach -Apt run build
       - name: Sign plugins
         uses: thomasdesr/minisign-action@v1
         with:
