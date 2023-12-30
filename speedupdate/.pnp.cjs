@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["prop-types", "npm:15.8.1"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:c87b06081374a82b9db905f01c9a46bc4e11890bba850c6ca2a5f57a18440e22827cca7134405b7b579e6782867e71128974297c29e74cf2c05350890f01fbe3#npm:18.2.0"],\
+          ["tslib", "npm:2.6.2"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
         ],\
         "linkType": "SOFT"\
@@ -1476,6 +1477,7 @@ const RAW_RUNTIME_STATE =
           ["prop-types", "npm:15.8.1"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:c87b06081374a82b9db905f01c9a46bc4e11890bba850c6ca2a5f57a18440e22827cca7134405b7b579e6782867e71128974297c29e74cf2c05350890f01fbe3#npm:18.2.0"],\
+          ["tslib", "npm:2.6.2"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
         ],\
         "linkType": "SOFT"\
