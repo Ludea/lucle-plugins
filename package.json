@@ -4,11 +4,5 @@
   "workspaces": [
     "static-files/web",
     "speedupdate"
-  ],
-  "scripts": {
-    "build": "turbo run build"
-  },
-  "devDependencies": {
-    "turbo": "^1.11.2"
-  }
+  ]
 }
