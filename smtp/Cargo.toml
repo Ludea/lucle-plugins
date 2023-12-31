@@ -9,7 +9,7 @@ crate-type = ["dylib"]
 
 [dependencies]
 ahash = "0.8"
-smtp = { git = "https://github.com/hoxxep/mail-server", branch = "explicit-versioning", features = ["local_delivery"] }
+smtp = { git = "https://github.com/stalwartlabs/mail-server" , features = ["local_delivery"] }
 utils = { git = "https://github.com/hoxxep/mail-server", branch = "explicit-versioning"}
 directory = { git = "https://github.com/hoxxep/mail-server", branch = "explicit-versioning"}
 jmap = { git = "https://github.com/hoxxep/mail-server", branch = "explicit-versioning"}
