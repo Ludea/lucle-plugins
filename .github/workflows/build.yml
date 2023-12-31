@@ -28,6 +28,8 @@ jobs:
         run: |
           yarn workspaces foreach -Apt install
           yarn workspaces foreach -Apt run build
+      - name: zip rust and js plugin 
+        run: zip static-files.zip target/release/libstatic_files.so static-files/web/dist/*.js
       - name: Sign plugins
         uses: thomasdesr/minisign-action@v1
         with:
