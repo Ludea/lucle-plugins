@@ -21,7 +21,8 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable 
       - name: Build rust plugins
         run: cargo build --release --verbose
-      - uses: mikefarah/yq@v4.40.5
+      - name: get js workspaces
+        uses: mikefarah/yq@v4.40.5
         with:
           cmd: echo "WORKSPACES=$(yq -I=0 .workspaces package.json)" >> $GITHUB_ENV 
       - name: Build js plugins
@@ -36,7 +37,6 @@ jobs:
           args: -Sm static-files.zip
           minisign_key: ${{ secrets.MINISIGN_KEY }}
          # password: ${{ secrets.MINISIGN_PASSWORD }}
-      - run: ls
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
