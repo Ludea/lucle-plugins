@@ -29,15 +29,14 @@ jobs:
           yarn workspaces foreach -Apt install
           yarn workspaces foreach -Apt run build
       - name: zip rust and js plugin 
-        run: |
-          zip static-files.zip target/release/libstatic_files.so static-files/web/dist/*.js
-          ls
+        run: zip static-files.zip target/release/libstatic_files.so static-files/web/dist/*.js
       - name: Sign plugins
         uses: thomasdesr/minisign-action@v1
         with:
-          args: -Sm target/release/*.so
+          args: -Sm static-files.zip
           minisign_key: ${{ secrets.MINISIGN_KEY }}
          # password: ${{ secrets.MINISIGN_PASSWORD }}
+      - run: ls
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -46,5 +45,6 @@ jobs:
             smtp/config.toml
             smtp/etc/
             target/release/*.so
-            target/release/*.minisig
+            static-files.zip
+            
           if-no-files-found: error
