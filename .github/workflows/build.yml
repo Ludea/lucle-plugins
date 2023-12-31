@@ -46,5 +46,5 @@ jobs:
             smtp/etc/
             target/release/*.so
             static-files.zip
-            
+            static-files.zip.minisig
           if-no-files-found: error
