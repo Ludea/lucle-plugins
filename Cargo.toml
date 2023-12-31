@@ -1,5 +1,5 @@
 [workspace]
-members = ["static-files"]
+members = ["static-files", "smtp"]
 resolver = "2"
 
 [workspace.package]
