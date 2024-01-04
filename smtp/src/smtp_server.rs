@@ -1,7 +1,8 @@
 use ahash::{AHashMap, AHashSet};
-use directory::config::ConfigDirectory;
+use directory::core::config::ConfigDirectory;
 use jmap::services::IPC_CHANNEL_BUFFER;
 use smtp::core::{SmtpSessionManager, SMTP};
+use store::config::ConfigStore;
 use std::collections::BTreeMap;
 use tokio::sync::mpsc;
 use utils::{
@@ -46,9 +47,22 @@ pub async fn start_smtp_server() {
     }
 
     let servers = config.parse_servers().failed("Invalid configuration");
-    let directory = config.parse_directory().failed("Invalid configuration");
-
     servers.bind(&config);
+
+     // Parse stores and directories
+    let stores = config.parse_stores().await.failed("Invalid configuration");
+    let directory = config
+        .parse_directory(&stores, config.value("jmap.store.data"))
+        .await
+        .failed("Invalid configuration");
+    let schedulers = config
+        .parse_purge_schedules(
+            &stores,
+            config.value("jmap.store.data"),
+            config.value("jmap.store.blob"),
+        )
+        .await
+        .failed("Invalid configuration");
 
     // Enable tracing
     let _tracer = enable_tracing(
@@ -61,7 +75,7 @@ pub async fn start_smtp_server() {
     .failed("Failed to enable tracing");
 
     let (delivery_tx, delivery_rx) = mpsc::channel(IPC_CHANNEL_BUFFER);
-    let smtp = SMTP::init(&config, &servers, &directory, delivery_tx)
+    let smtp = SMTP::init(&config, &servers, &store, &directory, delivery_tx)
         .await
         .failed("Invalid configuration file");
 
@@ -71,6 +85,24 @@ pub async fn start_smtp_server() {
         }
         _ => todo!(),
     });
+
+        // Spawn purge schedulers
+    for scheduler in schedulers {
+        scheduler.spawn(shutdown_rx.clone());
+    }
+
+    // Wait for shutdown signal
+    wait_for_shutdown(&format!(
+        "Shutting down Stalwart Mail Server v{}...",
+        env!("CARGO_PKG_VERSION")
+    ))
+    .await;
+
+    // Stop services
+    let _ = shutdown_tx.send(true);
+
+    // Wait for services to finish
+    tokio::time::sleep(Duration::from_secs(1)).await;
 }
 
 trait ReplaceMacros: Sized {
