@@ -4,10 +4,11 @@ use jmap::services::IPC_CHANNEL_BUFFER;
 use smtp::core::{SmtpSessionManager, SMTP};
 use store::config::ConfigStore;
 use std::collections::BTreeMap;
+use std::time::Duration;
 use tokio::sync::mpsc;
 use utils::{
     config::{Config, ServerProtocol},
-    enable_tracing, failed, UnwrapFailure,
+    enable_tracing, wait_for_shutdown, failed, UnwrapFailure,
 };
 
 pub async fn start_smtp_server() {
@@ -75,7 +76,7 @@ pub async fn start_smtp_server() {
     .failed("Failed to enable tracing");
 
     let (delivery_tx, delivery_rx) = mpsc::channel(IPC_CHANNEL_BUFFER);
-    let smtp = SMTP::init(&config, &servers, &store, &directory, delivery_tx)
+    let smtp = SMTP::init(&config, &servers, &stores, &directory, delivery_tx)
         .await
         .failed("Invalid configuration file");
 
