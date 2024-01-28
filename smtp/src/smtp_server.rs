@@ -16,7 +16,14 @@ pub async fn start_smtp_server() {
     config
         .parse(&std::fs::read_to_string("config.toml").unwrap())
         .failed("Could not read configuration file");
-
+    let schedulers = config
+        .parse_purge_schedules(
+            &stores,
+            config.value("jmap.store.data"),
+            config.value("jmap.store.blob"),
+        )
+        .await
+        .failed("Invalid configuration");
     // Extract macros and includes
     let mut keys = BTreeMap::new();
     let mut includes = AHashSet::new();
