@@ -5,6 +5,9 @@
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
 tasks:
+  - before: |
+      curl -O https://raw.githubusercontent.com/extism/js-pdk/main/install.sh
+      sh install.sh
   - init: cargo build
     command: cargo watch -x run
 

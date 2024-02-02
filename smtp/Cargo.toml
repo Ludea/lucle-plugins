@@ -9,7 +9,6 @@ crate-type = ["dylib"]
 
 [dependencies]
 ahash = "0.8"
-store = { git = "https://github.com/stalwartlabs/mail-server", features = ["sqlite"]}
 smtp = { git = "https://github.com/stalwartlabs/mail-server" , features = ["local_delivery"] }
 store = { git = "https://github.com/stalwartlabs/mail-server", features = ["sqlite"]}
 utils = { git = "https://github.com/stalwartlabs/mail-server"}
