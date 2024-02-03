@@ -5,6 +5,7 @@ key.pem
 **/dist
 **/node_modules
 Cargo.lock
+**/binaryen
 
 # yarn v2
 .yarn/cache
