@@ -37,7 +37,7 @@ jobs:
 #          yarn workspaces foreach -Apt run build
       - name: Build wasm
         run: |
-          cd speedupate 
+          cd speedupdate
           extism-js dist/Index.js -i src/Index.d.ts -o dist/speedupdate.wasm
 #      - name: zip rust, js and wasm file
 #        run: zip static-files.zip target/release/libstatic_files.so static-files/web/dist/*.js
