@@ -32,7 +32,7 @@ jobs:
           cd speedupdate 
           yarn install
           yarn build:js
-          
+          cat dist/Index.js
 #          yarn workspaces foreach -Apt install
 #          yarn workspaces foreach -Apt run build
       - name: Build wasm
