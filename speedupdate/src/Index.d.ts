@@ -1,3 +1,3 @@
 declare module 'main' {
-    export function Speedupdate(client: any): I32;
+    export function Speedupdate(client): I32;
 }
