@@ -29,8 +29,10 @@ jobs:
           cmd: echo "WORKSPACES=$(yq -I=0 .workspaces package.json)" >> $GITHUB_ENV 
       - name: Build js plugins
         run: |
-          yarn workspaces foreach -Apt install
-          yarn workspaces foreach -Apt run build
+          cd speedupdate 
+          yarn build
+#          yarn workspaces foreach -Apt install
+#          yarn workspaces foreach -Apt run build
       - name: Build wasm
         run: extism-js speedupdate/dist/Index.js -i speedupdate/src/Index.d.ts -o speedupdate/dist/speedupdate.wasm
       - name: zip rust, js and wasm file
