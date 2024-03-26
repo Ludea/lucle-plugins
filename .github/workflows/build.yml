@@ -30,6 +30,7 @@ jobs:
       - name: Build js plugins
         run: |
           cd speedupdate 
+          yarn install
           yarn build:js
 #          yarn workspaces foreach -Apt install
 #          yarn workspaces foreach -Apt run build
