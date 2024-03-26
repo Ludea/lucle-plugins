@@ -18,7 +18,9 @@ jobs:
         uses: actions/setup-node@v4.0.0
         with:
           node-version: 18
-      - uses: dtolnay/rust-toolchain@stable 
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Setup Extismjs cli
+        uses: ludea/setup-extismjs@v1
       - name: Build rust plugins
         run: cargo build --release --verbose
       - name: get js workspaces
@@ -29,7 +31,9 @@ jobs:
         run: |
           yarn workspaces foreach -Apt install
           yarn workspaces foreach -Apt run build
-      - name: zip rust and js plugin 
+      - name: Build wasm
+        run: extism-js speedupdate/dist/Index.js -i speedupdate/src/Index.d.ts -o speedupdate/dist/speedupdate.wasm
+      - name: zip rust, js and wasm file
         run: zip static-files.zip target/release/libstatic_files.so static-files/web/dist/*.js
       - name: Sign plugins
         uses: thomasdesr/minisign-action@v1
@@ -47,4 +51,5 @@ jobs:
             target/release/*.so
             static-files.zip
             static-files.zip.minisig
+            speedupdate/dist/*
           if-no-files-found: error
