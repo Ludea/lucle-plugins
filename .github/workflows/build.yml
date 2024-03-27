@@ -38,7 +38,7 @@ jobs:
       - name: Build wasm
         run: |
           cd speedupdate
-          extism-js dist/Index.js -i src/Index.d.ts -c false -o dist/speedupdate.wasm
+          extism-js dist/Index.js -i src/Index.d.ts -c 0 -o dist/speedupdate.wasm
 #      - name: zip rust, js and wasm file
 #        run: zip static-files.zip target/release/libstatic_files.so static-files/web/dist/*.js
 #      - name: Sign plugins
