@@ -48,7 +48,7 @@ jobs:
 #          minisign_key: ${{ secrets.MINISIGN_KEY }}
          # password: ${{ secrets.MINISIGN_PASSWORD }}
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifacts
           path: speedupdate/dist/*.wasm
