@@ -2,7 +2,7 @@
   "name": "static-files-webui",
   "type": "module",
   "scripts": {
-    "build": "tsc && node esbuild.mjs"
+    "build:js": "tsc && node esbuild.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
