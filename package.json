@@ -4,5 +4,6 @@
   "workspaces": [
     "static-files/web",
     "speedupdate"
-  ]
+  ],
+  "packageManager": "yarn@4.1.1"
 }

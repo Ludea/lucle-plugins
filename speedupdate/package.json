@@ -3,7 +3,7 @@
   "type": "module",
   "main'": "index.tsx",
   "scripts": {
-    "build:js": "tsc && node esbuild.mjs", 
+    "build:js": "tsc && node esbuild.mjs",
     "build-wasm": "extism-js dist/Index.js -i src/Index.d.ts -o dist/speedupdate.wasm"
   },
   "dependencies": {
