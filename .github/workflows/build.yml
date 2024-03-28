@@ -18,7 +18,6 @@ jobs:
         uses: actions/setup-node@v4.0.0
         with:
           node-version: 18
-#      - uses: dtolnay/rust-toolchain@stable
       - name: Setup Extismjs cli
         run: |
          curl -O https://raw.githubusercontent.com/extism/js-pdk/main/install.sh
@@ -31,12 +30,8 @@ jobs:
           cmd: echo "WORKSPACES=$(yq -I=0 .workspaces package.json)" >> $GITHUB_ENV 
       - name: Build js plugins
         run: |
-          cd speedupdate 
-          yarn install
-          yarn build:js
-          cat dist/Index.js
-#          yarn workspaces foreach -Apt install
-#          yarn workspaces foreach -Apt run build
+          yarn workspaces foreach -Apt install
+          yarn workspaces foreach -Apt run build:js
       - name: Build wasm
         run: |
           cd speedupdate
