@@ -18,9 +18,6 @@ jobs:
         uses: actions/setup-node@v4.0.0
         with:
           node-version: 18
-      - uses: dtolnay/rust-toolchain@stable
-      - name: Setup wasmsign2
-        run: cargo install wasmsign2-cli
       - name: Setup Extismjs cli
         run: |
          curl -O https://raw.githubusercontent.com/extism/js-pdk/main/install.sh
