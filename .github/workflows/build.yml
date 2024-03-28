@@ -20,7 +20,9 @@ jobs:
           node-version: 18
 #      - uses: dtolnay/rust-toolchain@stable
       - name: Setup Extismjs cli
-        uses: ludea/setup-extismjs@v1.0.2
+        run: |
+         curl -O https://raw.githubusercontent.com/extism/js-pdk/main/install.sh
+         sh ./install.sh
 #      - name: Build rust plugins
 #        run: cargo build --release --verbose
       - name: get js workspaces
